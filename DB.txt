@@ -1,0 +1,23 @@
+create database DiseasePrediction;
+use DiseasePrediction;
+
+create table register(name varchar(30),
+age int,
+gender varchar(30),
+height varchar(20),
+weight varchar(20),
+disease varchar(200),
+email varchar(50) primary key,
+password varchar(30),
+contact varchar(12));
+
+create table predictionresult(username varchar(50),
+symptoms varchar(250),
+disease_prediction varchar(250),
+prediction_date date);
+
+create table appointment(patient varchar(50),
+doctor_name varchar(50),
+doctor_speciality varchar(50),
+booking_date varchar(30),
+appointment_date varchar(30));

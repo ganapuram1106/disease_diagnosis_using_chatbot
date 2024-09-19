@@ -1,0 +1,158 @@
+{% load static %}
+<html>
+<head>
+<title>Disease Diagnosis</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="screen" />
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["tf1"].value;
+	var y=document.forms["f1"]["tf4"].value;
+	var c=document.forms["f1"]["tf5"].value;
+	var e=document.forms["f1"]["tf6"].value;
+	var a=document.forms["f1"]["tf7"].value;
+	var b=document.forms["f1"]["tf8"].value;
+	var d=document.forms["f1"]["tf9"].value;
+	if(x == null || x==""){
+		window.alert("Patient name must be enter");
+		document.f1.tf1.focus();
+		return false;
+	}
+	if(y == null || y==""){
+		window.alert("Height must be enter");
+		document.f1.tf4.focus();
+		return false;
+	}
+	if(c == null || c==""){
+		window.alert("Weight must be enter");
+		document.f1.tf5.focus();
+		return false;
+	}
+	if(isNaN(c)){
+		window.alert("Please enter valid weight");
+		document.f1.tf5.focus();
+		return false;
+	}
+	if(e == null || e==""){
+		window.alert("Disease history must be enter");
+		document.f1.tf6.focus();
+		return false;
+	}
+	if(a == null || a==""){
+		window.alert("Email ID must be enter");
+		document.f1.tf7.focus();
+		return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(gmail+\.)+(com)+$/;
+	if (!filter.test(a)) {
+		window.alert('enter a valid email address');
+		document.f1.tf7.focus();
+		return false;
+	}
+	if(b == null || b==""){
+		window.alert("password must be enter");
+		document.f1.tf8.focus();
+		return false;
+	}
+	if(d == null || d==""){
+		window.alert("Contact No must be enter");
+		document.f1.tf9.focus();
+		return false;
+	}
+	if(isNaN(d)){
+		window.alert("Please enter valid contact no");
+		document.f1.tf9.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="logo">
+      <h1><font color="orange" size="5">Disease Diagnosis using Chatbot</font></h1>
+	  <marquee><font color="pink" size="4">Disease Diagnosis</font></marquee>
+    </div>
+   
+  
+    </div>
+  </div>
+  <div id="menu">
+     <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'User' %}">User</a></li>
+      <li><a href="{% url 'Register' %}">Register Here</a></li>
+      
+   </ul>
+  </div>
+  <div class="entry">
+   <br/><br/><br/>
+	<font size="" color="white"><center>{{ data }}</center></font>
+	 <br>
+	 <center><font size="3" color="white">New User Signup Screen</font></center>
+	<form name="f1" method="post" action={% url 'Signup' %} OnSubmit="return validate()">
+	{% csrf_token %}
+	<br><br>
+	<TABLE align=center width="35%" class="notepad">
+		<TR><TH align="left"><font size="" color="white">Patient&nbsp;Name
+		<TD>&nbsp;&nbsp;<Input type=text name="tf1" value='' class="form-control">
+		<div id='nameid'></div>
+		</TD>
+		</TR>
+
+	<TR><TH align="left"><font size="" color="white">Age
+		<TD>&nbsp;&nbsp;<select name="tf2">
+		{{ data1|safe }}
+		</select>
+		<div id='nameid'></div>
+		</TD>
+		</TR>
+
+		
+		<TR><TH align="left"><font size="" color="white">Gender
+		<TD>&nbsp;&nbsp;<select name="tf3">
+		<option value="Male">Male</option>
+		<option value="Female">Female</option>
+		</select></TD>
+		</TR>
+		
+		<TR><TH align="left"><font size="" color="white">Height
+		<TD>&nbsp;&nbsp;<Input type='text' name="tf4"  value='' class="form-control">
+		</TR>
+
+		<TR><TH align="left"><font size="" color="white">Weight
+		<TD>&nbsp;&nbsp;<Input type='text' name="tf5"  value='' class="form-control">
+		</TR>
+
+		<TR><TH align="left"><font size="" color="white">Disease&nbsp;History
+		<TD>&nbsp;&nbsp;<Input type='text' size="35" name="tf6"  value='' class="form-control">
+		</TR>
+
+		<TR><TH align="left"><font size="" color="white">Email&nbsp;ID
+		<TD>&nbsp;&nbsp;<Input type='text' size="35" name="tf7"  value='' class="form-control">
+		</TR>
+
+		<TR><TH align="left"><font size="" color="white">Password
+		<TD>&nbsp;&nbsp;<Input type='password' size="25" name="tf8"  value='' class="form-control">
+		</TR>
+
+		<TR><TH align="left"><font size="" color="white">Contact&nbsp;No
+		<TD>&nbsp;&nbsp;<Input type='text' size="15" name="tf9"  value='' class="form-control">
+		</TR>
+
+		  <TR>
+				 <TD></TD>
+			<TD>	
+		  <input type="submit" value="Register">
+		 
+		  </TABLE>
+		
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+{% load static %}
+<html>
+<head>
+<title>Disease Diagnosis</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="screen" />
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["t2"].value;
+	if(x == null || x==""){
+		window.alert("Appointment Date must be choosen");
+		document.f1.t2.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+<script language="javascript" type="text/javascript" src="{% static 'datetimepicker.js' %}">
+</script>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="logo">
+      <h1><font color="orange" size="5">Disease Diagnosis using Chatbot</font></h1>
+	  <marquee><font color="pink" size="4">Disease Diagnosis</font></marquee>
+    </div>
+   
+  
+    </div>
+  </div>
+  <div id="menu">
+      <ul>
+	  <li><a href="{% url 'ChatBotPage' %}">Chatbot</a></li>
+	  <li><a href="{% url 'BookAppointment' %}">Book&nbsp;Appointment</a></li>
+	<li><a href="{% url 'DiseaseInfo' %}">Lifestyle & Disease Information</a></li>
+    <li><a href="{% url 'Logout' %}">Logout</a></li>
+      
+   </ul>
+  </div>
+  <div class="entry">
+   <br/><br/><br/>
+	<font size="" color="white"><center>{{ data|safe }}</center></font>
+	 <br>
+	 <center><font size="3" color="white">Book Appointment Screen</font></center>
+	<form name="f1" method="post" action={% url 'BookAppointmentAction' %} OnSubmit="return validate()">
+	{% csrf_token %}
+	<br><br>
+	<TABLE align=center width="35%" class="notepad">
+		<TR><TH align="left"><font size="" color="white">Choose&nbsp;Doctor
+		<TD>&nbsp;&nbsp;<select name="t1">
+		<option value="Dr. Ameet Dravid-Aids">Dr. Ameet Dravid-Aids</option>
+<option value="Dr. Pankaj Kumar-Typhoid">Dr. Pankaj Kumar-Typhoid</option>
+<option value="Dr. Vijay Arora-Tuberculosis">Dr. Vijay Arora-Tuberculosis</option>
+<option value="Dr. Prof Jayalakshmi T K-Pneumonia">Dr. Prof Jayalakshmi T K-Pneumonia</option>
+<option value="Dr. Chavan-Paralysis">Dr. Chavan-Paralysis</option>
+<option value="Dr. Suresh Joshi-General Medicine">Dr. Suresh Joshi-General Medicine</option>
+<option value="Dr. Deepa Reddy B.V-Migrane">Dr. Deepa Reddy B.V-Migrane</option>
+<option value="Dr Abdul Ghafur-Malaria">Dr Abdul Ghafur-Malaria</option>
+<option value="Dr Aditya Shah-Jaundice">Dr Aditya Shah-Jaundice</option>
+<option value="Dr. Vijay Surase-Hypertension">Dr. Vijay Surase-Hypertension</option>
+<option value="Dr. Harit Chaturvedi-Hepatitis">Dr. Harit Chaturvedi-Hepatitis</option>
+<option value="Dr Moka Praneeth-Gerd">Dr Moka Praneeth-Gerd</option>
+<option value="Dr. Amit Maydeo-Gastro">Dr. Amit Maydeo-Gastro</option>
+<option value="Dr. Rohit Batra-FungalInfection">Dr. Rohit Batra-FungalInfection</option>
+<option value="Dr. Sandeep Budhiraja-DrugReaction">Dr. Sandeep Budhiraja-DrugReaction</option>
+<option value="Dr. Chythanya D C-Diabetes">Dr. Chythanya D C-Diabetes</option>
+<option value="Dr. Sandeep Budhiraja-Dengue">Dr. Sandeep Budhiraja-Dengue</option>
+<option value="Dr. P Naveen Kumar-Cold">Dr. P Naveen Kumar-Cold</option>
+<option value="Dr. Sunil Dhar-ChronicDisease">Dr. Sunil Dhar-ChronicDisease</option>
+<option value="Dr. Abhigyan Kumar-ChickenPox">Dr. Abhigyan Kumar-ChickenPox</option>
+<option value="Dr. S.K.S. Marya-Spondylosis">Dr. S.K.S. Marya-Spondylosis</option>
+<option value="Dr. Vivek Nangia-Asthma">Dr. Vivek Nangia-Asthma</option>
+<option value="Dr. Basheer Ahmed-Allergy">Dr. Basheer Ahmed-Allergy</option>
+<option value="Dr. Harit Chaturvedi-AlcoholicHepatitis">Dr. Harit Chaturvedi-AlcoholicHepatitis</option>
+		</select>
+		<div id='nameid'></div>
+		</TD>
+		</TR>
+	<tr><TH><font size="" color="white">Choose&nbsp;Appointment&nbsp;Date</td><td>&nbsp;
+<input name="t2" type="Text" id="demo" maxlength="25" size="20" class="c2" ><a href="javascript:NewCal('demo','ddmmyyyy',false,24)"><img src="{% static 'cal.gif' %}" width="16" height="16" border="0" alt="Pick a date"></a>
+	  		<span class="descriptions"></span>
+</td></tr>	
+		
+		  <TR>
+				 <TD></TD>
+			<TD>	
+		  <input type="submit" value="Submit">
+		 
+		  </TABLE>
+		
+</form>
+</div>
+
+</body>
+</html>

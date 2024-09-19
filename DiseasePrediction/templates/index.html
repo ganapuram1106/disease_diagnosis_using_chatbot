@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+<head>
+<title>Disease Diagnosis</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="logo">
+      <h1><font color="orange" size="5">Disease Diagnosis using Chatbot</font></h1>
+	  <marquee><font color="pink" size="4">Disease Diagnosis</font></marquee>
+    </div>
+   
+  
+    </div>
+  </div>
+  <div id="menu">
+    <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'User' %}">User</a></li>
+      <li><a href="{% url 'Register' %}">Register Here</a></li>
+  </ul>
+  </div>
+  <div id="page">
+   <div id="content">
+      <div class="post">
+        <div class="title">
+          <h2>Disease Diagnosis</h2>
+         </div>
+        <div class="entry">
+		 <br/><br/><br/>
+
+	 
+	 <br>
+          <p><img src="{% static 'images/images.jpg' %}" alt="" width="890" height="200" class="left" /><p></p><font size="4" color="white">
+          <center><br/>About Disease Diagnosis</center></font></p>
+
+		  <table border="1" align="center">
+		  <tr><th><font size="" color="white">Algorithm</th><th><font size="" color="white">Accuracy</th><th><font size="" color="white">Precision</th>
+		  <th><font size="" color="white">Recall</th><th><font size="" color="white">FScore</th></tr>
+		  {{ data|safe }}
+		  </table><br/><br/>
+          <p><font size="" color="white">Disease Diagnosis using Chatbot & Machine Learning Algorithms.</p>
+          </div>
+        
+      </div>
+     
+       
+       
+    </div>
+    
+  </div>
+
+</body>
+</html>
